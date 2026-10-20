@@ -1,1 +1,735 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#244b35">
+<meta name="description" content="Lanna EcoSync — พื้นที่ทดลองออกแบบโลโก้บนผลิตภัณฑ์จากวัสดุธรรมชาติ และจองรอบโรงอบ">
+<title>Lanna EcoSync | เปลี่ยนวัสดุธรรมชาติให้เป็นแบรนด์ของคุณ</title>
+<style>
+:root{--forest:#244b35;--forest-2:#356849;--leaf:#7b9659;--lime:#d9e7b7;--cream:#f7f4e9;--paper:#fffdf7;--ink:#213128;--muted:#6d786d;--line:#e3e5d8;--terra:#b96e4a;--shadow:0 18px 55px rgba(31,60,41,.10);--radius:24px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+button,input,select,textarea{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+.wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+.site-header{position:sticky;top:0;z-index:30;background:rgba(255,253,247,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(36,75,53,.09)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.04em;color:var(--forest);font-size:1.12rem}
+.brand-mark{width:39px;height:39px;border-radius:14px;background:var(--forest);display:grid;place-items:center;color:#fff}
+.brand-mark svg{width:24px;height:24px}
+.nav-links{display:flex;align-items:center;gap:25px;color:#526357;font-size:.92rem;font-weight:650}
+.nav-links a:hover{color:var(--forest)}
+.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:13px 20px;background:var(--forest);color:white;font-weight:750;transition:transform .18s,background .18s,box-shadow .18s;box-shadow:0 8px 18px rgba(36,75,53,.13)}
+.nav-cta{padding:10px 17px;font-size:.9rem}
+.btn:hover,.nav-cta:hover{transform:translateY(-2px);background:var(--forest-2)}
+.btn.secondary{background:#edf1e5;color:var(--forest);box-shadow:none}
+.btn.secondary:hover{background:#e1e9d4}
+.btn.outline{background:transparent;border:1px solid #cdd7c8;color:var(--forest);box-shadow:none}
+.btn.small{padding:9px 14px;font-size:.88rem}
+.mobile-menu{display:none;border:1px solid var(--line);background:white;color:var(--forest);border-radius:12px;width:43px;height:43px}
+.hero{position:relative;overflow:hidden;background:var(--cream);padding:65px 0 55px}
+.hero:before{content:"";position:absolute;right:-100px;top:-210px;width:520px;height:520px;border-radius:50%;background:#e8edda}
+.hero:after{content:"";position:absolute;left:-180px;bottom:-260px;width:480px;height:480px;border-radius:50%;border:1px solid #d8dfca}
+.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:42px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid #d5dfc7;background:rgba(255,255,255,.55);border-radius:999px;color:var(--forest);font-size:.82rem;font-weight:800}
+.dot{width:7px;height:7px;background:#7b9659;border-radius:50%}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.08;letter-spacing:-.055em;margin:20px 0 19px;color:var(--forest);max-width:650px}
+h1 span{color:#8a9e5b}
+.hero-copy>p{font-size:1.1rem;max-width:560px;color:#617062;margin-bottom:27px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-notes{display:flex;gap:18px;flex-wrap:wrap;margin-top:25px;color:#6b786b;font-size:.86rem}
+.hero-notes span{display:flex;align-items:center;gap:7px}
+.hero-notes svg{width:16px;height:16px;color:var(--forest)}
+.hero-visual{min-height:420px;display:grid;place-items:center;position:relative}
+.hero-orbit{position:absolute;width:min(100%,430px);aspect-ratio:1;border-radius:50%;border:1px dashed #bdcba9}
+.hero-orbit:before,.hero-orbit:after{content:"";position:absolute;border-radius:50%;background:#dce6c8}
+.hero-orbit:before{width:16px;height:16px;top:17%;right:13%}
+.hero-orbit:after{width:10px;height:10px;bottom:16%;left:13%}
+.hero-product{width:min(100%,430px);position:relative;filter:drop-shadow(0 26px 18px rgba(51,70,43,.12));z-index:1}
+.float-card{position:absolute;z-index:2;display:flex;align-items:center;gap:11px;background:rgba(255,253,247,.94);border:1px solid rgba(36,75,53,.10);padding:12px 15px;border-radius:17px;box-shadow:var(--shadow)}
+.float-card.one{top:48px;left:-2px}.float-card.two{right:-2px;bottom:48px}
+.float-icon{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:#e8efdc;color:var(--forest);font-size:1.2rem}
+.float-card b{display:block;font-size:.9rem;color:var(--forest)}
+.float-card small{display:block;color:var(--muted);font-size:.77rem}
+.trust-strip{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}
+.trust-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.trust-intro{font-weight:750;color:#5c6c5d}
+.trust-item{display:flex;align-items:center;gap:10px;color:#5f6f60;font-size:.9rem}
+.trust-item strong{color:var(--forest)}
+.trust-icon{width:35px;height:35px;border-radius:12px;background:#f0f2e7;display:grid;place-items:center}
+section{padding:88px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:32px}
+.kicker{color:#839456;text-transform:uppercase;letter-spacing:.14em;font-weight:850;font-size:.75rem;margin-bottom:9px}
+h2{font-size:clamp(2rem,3.5vw,3.05rem);line-height:1.15;letter-spacing:-.045em;color:var(--forest);margin-bottom:12px}
+.section-head p,.section-intro{max-width:620px;color:var(--muted);margin-bottom:0}
+.studio-section{background:#fff}
+.studio-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 7px 25px rgba(36,75,53,.035)}
+.panel h3{font-size:1.08rem;color:var(--forest);margin-bottom:5px}
+.panel-sub{color:var(--muted);font-size:.89rem;margin-bottom:19px}
+.product-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:25px}
+.product-option{border:1px solid var(--line);background:#fffdf7;border-radius:16px;padding:12px 7px 10px;text-align:center;color:var(--ink);transition:.18s}
+.product-option:hover{border-color:#a7b98e;transform:translateY(-1px)}
+.product-option.active{border-color:var(--forest);background:#eef3e6;box-shadow:inset 0 0 0 1px var(--forest)}
+.product-icon{height:58px;display:grid;place-items:center;margin-bottom:4px}
+.product-icon svg{width:62px;height:54px}
+.product-option strong{display:block;font-size:.82rem;line-height:1.3}
+.product-option small{display:block;color:var(--muted);font-size:.72rem;margin-top:3px}
+.upload-zone{border:1.5px dashed #bdcbb2;background:#f9faf4;border-radius:17px;padding:17px;display:flex;gap:13px;align-items:center}
+.upload-symbol{width:44px;height:44px;border-radius:14px;background:#e5ecd8;color:var(--forest);display:grid;place-items:center;flex-shrink:0}
+.upload-symbol svg{width:22px;height:22px}
+.upload-text{min-width:0;flex:1}
+.upload-text strong{display:block;color:var(--forest);font-size:.92rem}
+.upload-text span{display:block;color:var(--muted);font-size:.78rem;overflow-wrap:anywhere}
+.file-button{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid #cbd6c1;border-radius:999px;background:white;color:var(--forest);font-weight:750;font-size:.8rem;padding:9px 12px}
+.file-button:hover{background:#edf2e6}
+#logoFile{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.mode-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:20px}
+.mode-button{border:1px solid var(--line);border-radius:14px;background:white;padding:12px;text-align:left;color:var(--ink)}
+.mode-button.active{border-color:var(--forest);background:#eef3e6}
+.mode-button strong{display:block;font-size:.91rem;color:var(--forest)}
+.mode-button span{display:block;font-size:.76rem;color:var(--muted);margin-top:2px}
+.control-group{margin-top:21px}
+.control-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px;font-size:.88rem;font-weight:750;color:var(--forest)}
+.control-top output{background:#f0f2e7;border-radius:8px;padding:3px 8px;font-size:.8rem}
+input[type=range]{width:100%;accent-color:var(--forest)}
+.helper{font-size:.78rem;color:var(--muted);margin:7px 0 0}
+.control-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.preview-panel{padding:22px;background:#f6f4ea;border:1px solid #e6e5d7;border-radius:var(--radius);position:sticky;top:100px}
+.preview-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
+.preview-top h3{margin:0;color:var(--forest)}
+.live-tag{display:inline-flex;align-items:center;gap:6px;color:#59724d;background:#e5edd8;border-radius:999px;padding:6px 10px;font-size:.75rem;font-weight:800}
+.live-tag:before{content:"";width:6px;height:6px;background:#7c9b56;border-radius:50%}
+.preview-stage{position:relative;width:100%;aspect-ratio:4/3;border-radius:19px;overflow:hidden;background:radial-gradient(ellipse at 50% 44%,#fffdf6 0%,#f4f0df 62%,#e8e5d3 100%);border:1px solid rgba(36,75,53,.07)}
+.product-scene{display:none;width:100%;height:100%;position:absolute;inset:0}
+.product-scene.active{display:block}
+.logo-stamp{position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:var(--logo-size,30%);aspect-ratio:1.4;display:grid;place-items:center;z-index:3;pointer-events:none;padding:4px;transition:width .15s}
+.logo-stamp img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;display:none}
+.logo-placeholder{width:100%;height:100%;display:grid;place-items:center;text-align:center;color:#25472f;font-size:clamp(8px,1.7vw,14px);font-weight:900;letter-spacing:.07em;line-height:1.1}
+.logo-placeholder .leaf-mark{font-size:1.45em;display:block;margin-bottom:2px}
+.logo-stamp.sticker{aspect-ratio:1;background:rgba(255,255,255,.96);border:1px solid #e5e4d8;border-radius:50%;padding:12px;box-shadow:0 4px 12px rgba(44,52,35,.18)}
+.logo-stamp.screen{mix-blend-mode:multiply;opacity:.9}
+.preview-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 2px 1px;color:var(--muted);font-size:.82rem}
+.preview-caption strong{color:var(--forest)}
+.preview-disclaimer{font-size:.76rem;color:#798273;margin:12px 0 0}
+.preview-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:13px;font-size:.78rem;color:#697568}
+.preview-legend span{display:flex;align-items:center;gap:7px}
+.legend-dot{width:9px;height:9px;border-radius:50%;background:#a4b783}
+.legend-dot.sticker-dot{background:white;border:1px solid #b6b9a8}
+.products-section{background:var(--cream)}
+.product-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.product-card{background:var(--paper);border:1px solid #e6e5d9;border-radius:22px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.product-card-art{height:220px;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 55%,#fffdf7 0%,#eeeedd 100%);padding:12px}
+.product-card-art svg{width:100%;height:100%;max-width:280px}
+.product-card-body{padding:19px 20px 21px}
+.product-card-body h3{color:var(--forest);margin-bottom:5px;font-size:1.08rem}
+.product-card-body p{color:var(--muted);font-size:.87rem;margin-bottom:15px}
+.tag-row{display:flex;flex-wrap:wrap;gap:7px}
+.tag{border-radius:999px;background:#e9eedf;color:#536d43;font-size:.73rem;font-weight:750;padding:5px 9px}
+.booking-section{background:#fff}
+.booking-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:30px;align-items:start}
+.booking-aside{position:relative;overflow:hidden;border-radius:26px;padding:29px;background:var(--forest);color:#fff;min-height:100%}
+.booking-aside:after{content:"";position:absolute;width:240px;height:240px;right:-90px;bottom:-100px;border-radius:50%;border:1px solid rgba(255,255,255,.18);box-shadow:0 0 0 24px rgba(255,255,255,.03),0 0 0 48px rgba(255,255,255,.025)}
+.booking-aside .kicker{color:#c5d9a1}
+.booking-aside h3{font-size:1.75rem;line-height:1.2;letter-spacing:-.035em;margin-bottom:12px;position:relative;z-index:1}
+.booking-aside p{color:#d0ddce;font-size:.91rem;position:relative;z-index:1}
+.booking-features{display:grid;gap:13px;margin-top:27px;position:relative;z-index:1}
+.booking-feature{display:flex;gap:11px;align-items:flex-start;color:#e8efe4;font-size:.88rem}
+.booking-feature span:first-child{width:28px;height:28px;border-radius:9px;background:rgba(255,255,255,.12);display:grid;place-items:center;flex-shrink:0}
+.booking-notice{margin-top:28px;padding:13px 14px;border-radius:14px;background:rgba(255,255,255,.09);font-size:.78rem;color:#dce7d7;position:relative;z-index:1}
+.booking-form-panel{border:1px solid var(--line);border-radius:25px;padding:26px;background:white}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.85rem;font-weight:750;color:var(--forest)}
+.field input,.field select,.field textarea{width:100%;border:1px solid #dce1d5;border-radius:12px;background:#fffdf9;padding:12px 13px;color:var(--ink);outline:none;min-width:0}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#7d9b66;box-shadow:0 0 0 3px rgba(125,155,102,.14)}
+.field textarea{resize:vertical;min-height:80px}
+.form-help{font-size:.76rem;color:var(--muted);margin:0}
+.form-submit{margin-top:20px;width:100%}
+.form-message{display:none;margin-top:13px;padding:12px 14px;border-radius:12px;font-size:.85rem}
+.form-message.error{display:block;background:#fff0e8;color:#8d472b}
+.form-message.success{display:block;background:#edf5e7;color:#335a32}
+.reservations{margin-top:30px;border-top:1px solid var(--line);padding-top:25px}
+.reservations-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}
+.reservations-head h3{margin:0;color:var(--forest);font-size:1.05rem}
+.reservation-count{font-size:.77rem;font-weight:800;background:#edf1e5;color:var(--forest);padding:5px 9px;border-radius:999px}
+.reservation-list{display:grid;gap:10px}
+.empty-state{border:1px dashed #d6dece;background:#fafbf7;border-radius:15px;padding:22px;text-align:center;color:var(--muted);font-size:.88rem}
+.reservation-item{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line);border-radius:15px;padding:14px}
+.res-date{min-width:56px;border-radius:12px;background:#edf2e5;text-align:center;padding:7px 4px;color:var(--forest)}
+.res-date strong{display:block;font-size:1.18rem;line-height:1.2}
+.res-date span{font-size:.68rem;font-weight:800}
+.res-info{flex:1;min-width:0}
+.res-info strong{display:block;color:var(--forest);font-size:.9rem}
+.res-info p{margin:3px 0 0;color:var(--muted);font-size:.78rem}
+.res-actions{display:flex;align-items:center;gap:6px}
+.delete-res{border:0;background:transparent;color:#8d6b5a;font-size:.76rem;padding:6px;border-radius:8px}
+.delete-res:hover{background:#f8e9e2}
+.local-note{font-size:.77rem;color:var(--muted);margin:13px 0 0}
+.process-section{background:#f7f8f1}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:30px}
+.step{padding:22px;border:1px solid #e1e6d8;border-radius:20px;background:rgba(255,255,255,.7)}
+.step-num{width:38px;height:38px;display:grid;place-items:center;background:#e4ebd7;color:var(--forest);font-weight:900;border-radius:13px;margin-bottom:17px}
+.step h3{font-size:1rem;color:var(--forest);margin-bottom:7px}
+.step p{font-size:.84rem;color:var(--muted);margin-bottom:0}
+.faq-section{background:#fff}
+.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px}
+.faq-list{display:grid;gap:10px}
+details{border:1px solid var(--line);border-radius:15px;padding:16px 18px;background:#fff}
+summary{font-weight:800;color:var(--forest);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:1.3rem;font-weight:500;color:#80915d}
+details[open] summary:after{content:"−"}
+details p{margin:12px 0 0;color:var(--muted);font-size:.88rem}
+.cta-band{padding:0 0 85px;background:#fff}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:25px;background:#e9eedf;border-radius:25px;padding:31px 35px}
+.cta-inner h2{font-size:clamp(1.55rem,3vw,2.25rem);margin-bottom:8px}
+.cta-inner p{margin:0;color:#657360}
+.site-footer{background:#203f2d;color:#dce7d9;padding:37px 0}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.footer-brand{font-weight:850;font-size:1.08rem;letter-spacing:-.03em}
+.footer-brand span{display:block;font-size:.77rem;font-weight:500;color:#b7c9b1;letter-spacing:0;margin-top:3px}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:.84rem;color:#d3dfcf}
+.footer-small{width:100%;border-top:1px solid rgba(255,255,255,.13);padding-top:17px;margin-top:8px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#b7c9b1;font-size:.75rem}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:80;background:#203f2d;color:white;padding:12px 17px;border-radius:999px;box-shadow:var(--shadow);font-size:.88rem;transition:.25s;max-width:calc(100% - 30px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hidden{display:none!important}
+@media(max-width:900px){.nav-links{gap:15px}.hero-grid{gap:20px}.hero-visual{min-height:350px}.float-card.one{left:0;top:25px}.float-card.two{right:0;bottom:28px}.studio-layout{grid-template-columns:1fr}.preview-panel{position:relative;top:auto}.booking-grid{grid-template-columns:1fr}.booking-aside{min-height:unset}.faq-grid{grid-template-columns:1fr;gap:15px}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.wrap{width:min(100% - 28px,1160px)}.nav{min-height:68px}.brand{font-size:1rem}.brand-mark{width:35px;height:35px}.nav-cta{display:none}.mobile-menu{display:grid;place-items:center}.nav-links{display:none;position:absolute;top:67px;left:14px;right:14px;background:#fffdf7;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:17px;padding:15px;flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:11px 9px;border-radius:9px}.nav-links a:hover{background:#f0f3e8}.hero{padding:43px 0 32px}.hero-grid{grid-template-columns:1fr;gap:14px}.hero-copy>p{font-size:1rem}.hero-visual{min-height:330px;margin:0 -4px}.hero-product{width:min(100%,350px)}.hero-orbit{width:300px}.float-card{padding:9px 11px;border-radius:14px}.float-card.one{left:0;top:18px}.float-card.two{right:0;bottom:12px}.float-icon{width:32px;height:32px}.float-card b{font-size:.8rem}.float-card small{font-size:.7rem}.trust-row{gap:12px}.trust-intro{width:100%}.trust-item{font-size:.78rem;gap:7px}.trust-icon{width:29px;height:29px}.trust-item:nth-last-child(1){display:none}section{padding:62px 0}.section-head{display:block;margin-bottom:25px}.section-head p{margin-top:12px}.panel{padding:17px;border-radius:19px}.product-options{gap:6px}.product-option{padding:9px 4px}.product-option strong{font-size:.74rem}.product-option small{font-size:.66rem}.product-icon{height:48px}.product-icon svg{width:53px;height:48px}.upload-zone{padding:13px;gap:9px;flex-wrap:wrap}.upload-text{flex-basis:calc(100% - 58px)}.file-button{margin-left:53px}.preview-panel{padding:14px;border-radius:19px}.preview-caption{font-size:.75rem}.product-cards{grid-template-columns:1fr;gap:13px}.product-card{display:grid;grid-template-columns:40% 60%;align-items:stretch}.product-card-art{height:auto;min-height:160px;padding:6px}.product-card-body{padding:16px 14px 16px 6px}.product-card-body h3{font-size:.97rem}.product-card-body p{font-size:.8rem;margin-bottom:10px}.tag{font-size:.66rem}.booking-aside,.booking-form-panel{padding:20px;border-radius:20px}.form-grid{grid-template-columns:1fr;gap:13px}.field.full{grid-column:auto}.steps{grid-template-columns:1fr 1fr;gap:9px}.step{padding:16px}.step-num{margin-bottom:12px}.step h3{font-size:.9rem}.step p{font-size:.78rem}.cta-band{padding-bottom:60px}.cta-inner{padding:23px;display:block}.cta-inner .btn{margin-top:17px;width:100%}.footer-row{align-items:flex-start}.footer-links{gap:12px}.footer-small{display:block}.footer-small span{display:block;margin-top:6px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Lanna EcoSync หน้าแรก">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.7 3.5C11.5 3.7 5.1 5.7 4.2 11.1c-.5 3.1 1.7 5.3 4.5 5.2 5.3-.2 8.6-5.6 11-12.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3.5 21c2.1-5.2 5.5-8.5 10.2-11.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      <span>Lanna EcoSync</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="เมนูหลัก">
+      <a href="#studio">ทดลองโลโก้</a>
+      <a href="#products">ผลิตภัณฑ์</a>
+      <a href="#booking">จองโรงอบ</a>
+      <a href="#how">วิธีใช้งาน</a>
+    </nav>
+    <a class="nav-cta" href="#booking">จองรอบโรงอบ <span aria-hidden="true">↗</span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="เปิดเมนู" aria-expanded="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot"></span> วัสดุธรรมชาติ • ไอเดียที่ไปต่อได้</span>
+      <h1>งานธรรมชาติ<br>ที่มี <span>แบรนด์ของคุณ</span></h1>
+      <p>ทดลองวางโลโก้บนตัวอย่างผลิตภัณฑ์จากใบตองตึง เลือกงานสกรีนหรือสติกเกอร์ แล้วจัดการรอบโรงอบได้ในที่เดียว</p>
+      <div class="hero-actions">
+        <a class="btn" href="#studio">ลองวางโลโก้ <span aria-hidden="true">→</span></a>
+        <a class="btn secondary" href="#booking">ดูระบบจองโรงอบ</a>
+      </div>
+      <div class="hero-notes">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 12 4 4L19 6"/></svg> ทดลองได้ทันที</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg> ออกแบบได้หลายแบบ</span>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="ภาพตัวอย่างถ้วยจากวัสดุธรรมชาติ">
+      <div class="hero-orbit"></div>
+      <svg class="hero-product" viewBox="0 0 420 360" role="img" aria-label="ถ้วยใบตองตึงตัวอย่างพร้อมตราสัญลักษณ์">
+        <defs>
+          <linearGradient id="heroBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7c58a"/><stop offset=".42" stop-color="#9fa66a"/><stop offset="1" stop-color="#6f7d4a"/></linearGradient>
+          <linearGradient id="heroRim" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d9d4a1"/><stop offset="1" stop-color="#7d8752"/></linearGradient>
+          <filter id="heroShadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="10"/></filter>
+          <clipPath id="heroClip"><path d="M92 108 Q210 153 328 108 L300 274 Q210 313 120 274Z"/></clipPath>
+        </defs>
+        <ellipse cx="210" cy="302" rx="132" ry="24" fill="#526144" opacity=".2" filter="url(#heroShadow)"/>
+        <path d="M92 108 Q210 153 328 108 L300 274 Q210 313 120 274Z" fill="url(#heroBody)" stroke="#687547" stroke-width="3"/>
+        <g clip-path="url(#heroClip)" opacity=".62" stroke="#e3dba8" stroke-width="2" fill="none">
+          <path d="M110 116Q150 185 133 288M137 123Q173 187 160 298M166 131Q193 190 190 304M194 136Q213 198 218 304M222 135Q238 197 247 299M250 128Q266 186 275 290M279 119Q290 174 300 280"/>
+          <path d="M115 160q36 -12 51 1m-43 23q33 -11 48 0m-39 25q31 -10 43 0m-36 23q25 -9 36 0M163 169q25 -11 38 0m-31 25q25 -9 38 0m-29 25q24 -8 36 0M220 171q20 -8 35 0m-28 24q22 -8 34 0m-25 24q21 -7 33 0M267 162q16 -8 29 0m-25 26q18 -7 29 0m-21 24q18 -6 26 0"/>
+        </g>
+        <ellipse cx="210" cy="108" rx="119" ry="39" fill="url(#heroRim)" stroke="#737d4d" stroke-width="4"/>
+        <ellipse cx="210" cy="108" rx="98" ry="27" fill="#485a35"/>
+        <ellipse cx="210" cy="106" rx="85" ry="19" fill="#6e7b49"/>
+        <path d="M144 104q30 -17 63 -4t64 1" fill="none" stroke="#d5d6a1" stroke-width="2" opacity=".7"/>
+        <g transform="translate(210 214)">
+          <ellipse cx="0" cy="0" rx="42" ry="34" fill="#f9f7e9" opacity=".94"/>
+          <path d="M14 -21C-7 -21 -23 -10 -24 5c-1 12 10 18 19 11 11-8 16-22 19-37Z" fill="#426442"/>
+          <path d="M-20 21Q-6 2 10 -8" fill="none" stroke="#426442" stroke-width="2" stroke-linecap="round"/>
+          <text x="0" y="28" text-anchor="middle" font-size="8" font-weight="800" fill="#426442" letter-spacing="1.4">ECO BRAND</text>
+        </g>
+        <path d="M97 113q12 9 24 10M301 123q15-2 25-12" stroke="#e6dfb1" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="float-card one"><span class="float-icon">🌿</span><span><b>วัสดุธรรมชาติ</b><small>ลวดลายแต่ละชิ้นไม่เหมือนกัน</small></span></div>
+      <div class="float-card two"><span class="float-icon">✳</span><span><b>ลองโลโก้ได้ทันที</b><small>เห็นตำแหน่งก่อนผลิตจริง</small></span></div>
+    </div>
+  </div>
+</section>
+<div class="trust-strip">
+  <div class="wrap trust-row">
+    <div class="trust-intro">ออกแบบให้เริ่มต้นง่ายขึ้น</div>
+    <div class="trust-item"><span class="trust-icon">◉</span><span><strong>2 รูปแบบ</strong> โลโก้</span></div>
+    <div class="trust-item"><span class="trust-icon">♧</span><span><strong>3 แบบ</strong> ตัวอย่างสินค้า</span></div>
+    <div class="trust-item"><span class="trust-icon">▦</span><span><strong>จองรอบ</strong> โรงอบ</span></div>
+  </div>
+</div>
 
+<section class="studio-section" id="studio">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Logo playground</div><h2>ทดลองวางโลโก้ของคุณ</h2><p>อัปโหลดไฟล์โลโก้ แล้วเลือกวัสดุและวิธีติดตรา เพื่อดูภาพตัวอย่างก่อนตัดสินใจผลิต</p></div>
+    </div>
+    <div class="studio-layout">
+      <div class="panel">
+        <h3>1. เลือกตัวอย่างผลิตภัณฑ์</h3>
+        <p class="panel-sub">เปลี่ยนชิ้นงานเพื่อดูตำแหน่งโลโก้ที่เหมาะสม</p>
+        <div class="product-options" role="group" aria-label="เลือกผลิตภัณฑ์">
+          <button class="product-option active" data-product="cup" type="button" aria-pressed="true">
+            <span class="product-icon"><svg viewBox="0 0 80 62" fill="none"><path d="M15 16Q40 29 65 16L58 51Q40 59 22 51Z" fill="#a8ad72" stroke="#68784a" stroke-width="2"/><ellipse cx="40" cy="16" rx="25" ry="8" fill="#d1cf99" stroke="#68784a" stroke-width="2"/><ellipse cx="40" cy="16" rx="18" ry="4" fill="#52623a"/><path d="M25 21l4 28M34 24l3 28M44 24l-1 28M53 21l-4 28" stroke="#e5dfac" stroke-width="1.5"/></svg></span>
+            <strong>ถ้วยใบตองตึง</strong><small>โลโก้ด้านหน้า</small>
+          </button>
+          <button class="product-option" data-product="plate" type="button" aria-pressed="false">
+            <span class="product-icon"><svg viewBox="0 0 80 62" fill="none"><ellipse cx="40" cy="34" rx="31" ry="17" fill="#8e9961" stroke="#68784a" stroke-width="2"/><ellipse cx="40" cy="30" rx="28" ry="15" fill="#c3c58c" stroke="#747d4c" stroke-width="2"/><ellipse cx="40" cy="28" rx="21" ry="10" fill="#e1dcb0"/><path d="M24 25q16 7 32 0M28 31q12 5 24 0" stroke="#a1a66e" stroke-width="1.5"/></svg></span>
+            <strong>จานใบตองตึง</strong><small>โลโก้ตรงกลาง</small>
+          </button>
+          <button class="product-option" data-product="bowl" type="button" aria-pressed="false">
+            <span class="product-icon"><svg viewBox="0 0 80 62" fill="none"><path d="M9 20Q40 37 71 20L62 46Q40 59 18 46Z" fill="#9da56b" stroke="#68784a" stroke-width="2"/><ellipse cx="40" cy="20" rx="31" ry="11" fill="#d2d09a" stroke="#68784a" stroke-width="2"/><ellipse cx="40" cy="20" rx="23" ry="7" fill="#5a693f"/><path d="M20 23l5 21M30 27l3 22M42 28l-1 22M53 25l-5 21" stroke="#e4ddaa" stroke-width="1.5"/></svg></span>
+            <strong>ชามใบตองตึง</strong><small>โลโก้ด้านหน้า</small>
+          </button>
+        </div>
+        <h3>2. เพิ่มโลโก้ของคุณ</h3>
+        <p class="panel-sub">แนะนำไฟล์ PNG พื้นหลังโปร่งใส เพื่อให้โลโก้กลมกลืนกับวัสดุ</p>
+        <div class="upload-zone">
+          <span class="upload-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m-5 5 5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg></span>
+          <div class="upload-text"><strong id="uploadTitle">อัปโหลดไฟล์โลโก้</strong><span id="uploadStatus">PNG, JPG, WEBP หรือ SVG • ไม่เกิน 8 MB</span></div>
+          <label class="file-button" for="logoFile">เลือกไฟล์</label>
+          <input id="logoFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml">
+        </div>
+        <div class="mode-row" role="group" aria-label="รูปแบบการติดโลโก้">
+          <button class="mode-button active" data-mode="screen" type="button" aria-pressed="true"><strong>◌ สกรีน</strong><span>เนียนไปกับผิววัสดุ</span></button>
+          <button class="mode-button" data-mode="sticker" type="button" aria-pressed="false"><strong>▢ สติกเกอร์</strong><span>มีพื้นหลังช่วยขับโลโก้</span></button>
+        </div>
+        <div class="control-group">
+          <div class="control-top"><label for="logoSize">ขนาดโลโก้</label><output id="logoSizeValue" for="logoSize">30%</output></div>
+          <input id="logoSize" type="range" min="16" max="42" step="1" value="30">
+          <p class="helper">ปรับขนาดให้เหมาะกับพื้นที่จริงของสินค้า</p>
+        </div>
+        <div class="control-actions">
+          <button class="btn small" id="downloadMockup" type="button">ดาวน์โหลดภาพตัวอย่าง ↓</button>
+          <button class="btn small secondary" id="clearLogo" type="button">ล้างโลโก้</button>
+        </div>
+      </div>
+      <div class="preview-panel">
+        <div class="preview-top"><h3>ตัวอย่างก่อนผลิต</h3><span class="live-tag">Live preview</span></div>
+        <div class="preview-stage" id="previewStage">
+          <svg class="product-scene active" data-scene="cup" viewBox="0 0 360 270" role="img" aria-label="ถ้วยใบตองตึง"><defs><linearGradient id="cupBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d0cc92"/><stop offset=".45" stop-color="#a7ad73"/><stop offset="1" stop-color="#78864e"/></linearGradient><linearGradient id="cupRim" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e0d9a5"/><stop offset="1" stop-color="#8b9458"/></linearGradient><filter id="cupShadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="7"/></filter><clipPath id="cupClip"><path d="M65 79Q180 118 295 79L270 215Q180 248 90 215Z"/></clipPath></defs><ellipse cx="180" cy="225" rx="117" ry="18" fill="#6b7551" opacity=".17" filter="url(#cupShadow)"/><path d="M65 79Q180 118 295 79L270 215Q180 248 90 215Z" fill="url(#cupBody)" stroke="#707b4b" stroke-width="2.5"/><g clip-path="url(#cupClip)" fill="none" stroke="#e6dfad" stroke-width="1.8" opacity=".8"><path d="M84 83Q117 153 105 225M111 91Q143 157 132 231M139 100Q164 165 158 239M166 105Q184 172 180 242M194 105Q210 171 210 239M221 100Q239 162 238 231M249 91Q262 151 265 221M276 83Q288 137 289 211"/><path d="M92 126q25-8 40 1m-33 22q24-8 37 0m-31 22q23-7 34 0m-26 22q20-6 31 0M144 135q20-7 31 0m-26 22q20-6 31 0m-26 22q19-5 29 0M192 136q18-6 30 0m-25 22q19-6 31 0m-25 22q18-5 29 0M236 128q18-7 29 0m-23 22q18-6 28 0m-23 22q16-5 26 0"/></g><ellipse cx="180" cy="79" rx="115" ry="32" fill="url(#cupRim)" stroke="#707b4b" stroke-width="3"/><ellipse cx="180" cy="79" rx="94" ry="22" fill="#56653b"/><ellipse cx="180" cy="78" rx="77" ry="15" fill="#6c7947"/><path d="M105 78q35-17 67-5t76 0" stroke="#d8d9a1" stroke-width="1.6" fill="none" opacity=".7"/></svg>
+          <svg class="product-scene" data-scene="plate" viewBox="0 0 360 270" role="img" aria-label="จานใบตองตึง"><defs><linearGradient id="plateOuter" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b7bd7f"/><stop offset="1" stop-color="#6d7a48"/></linearGradient><linearGradient id="plateInner" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e0ddae"/><stop offset="1" stop-color="#b9bf82"/></linearGradient><filter id="plateShadow" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur stdDeviation="8"/></filter></defs><ellipse cx="180" cy="165" rx="133" ry="59" fill="#6a7551" opacity=".16" filter="url(#plateShadow)"/><ellipse cx="180" cy="145" rx="132" ry="69" fill="url(#plateOuter)" stroke="#6c7948" stroke-width="3"/><ellipse cx="180" cy="136" rx="121" ry="61" fill="url(#plateInner)" stroke="#858d58" stroke-width="2.5"/><ellipse cx="180" cy="131" rx="103" ry="48" fill="#d3d29a" stroke="#a1a66e" stroke-width="2"/><ellipse cx="180" cy="127" rx="86" ry="38" fill="#e4dfb2"/><g fill="none" stroke="#aeb27a" stroke-width="1.6" opacity=".8"><path d="M95 125q85 32 170 0M110 110q70 27 140 0M120 142q60 20 120 0M138 98q42 20 84 0M150 153q30 10 60 0"/></g><path d="M54 145q8 25 35 36M306 145q-8 25-35 36" fill="none" stroke="#d6d7a0" stroke-width="2"/></svg>
+          <svg class="product-scene" data-scene="bowl" viewBox="0 0 360 270" role="img" aria-label="ชามใบตองตึง"><defs><linearGradient id="bowlBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c9c88d"/><stop offset=".5" stop-color="#a0a96d"/><stop offset="1" stop-color="#6f7d49"/></linearGradient><linearGradient id="bowlRim" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e1dca8"/><stop offset="1" stop-color="#8a9457"/></linearGradient><filter id="bowlShadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="7"/></filter><clipPath id="bowlClip"><path d="M45 95Q180 141 315 95L284 202Q180 245 76 202Z"/></clipPath></defs><ellipse cx="180" cy="217" rx="121" ry="18" fill="#6b7551" opacity=".18" filter="url(#bowlShadow)"/><path d="M45 95Q180 141 315 95L284 202Q180 245 76 202Z" fill="url(#bowlBody)" stroke="#6c7948" stroke-width="2.5"/><g clip-path="url(#bowlClip)" fill="none" stroke="#e4dfac" stroke-width="1.8" opacity=".8"><path d="M68 101Q94 160 88 213M98 109Q124 170 118 225M128 119Q151 177 148 235M158 127Q177 184 180 239M188 127Q205 183 210 235M218 119Q238 173 242 225M248 109Q267 162 272 213M278 101Q298 153 300 202"/><path d="M76 141q23-8 36 0m-29 22q22-7 34 0m-26 21q19-6 31 0M129 151q19-6 31 0m-25 21q19-6 30 0m-23 21q17-5 28 0M183 152q17-5 28 0m-24 21q17-5 28 0m-23 21q16-4 27 0M235 141q17-6 30 0m-25 22q17-5 28 0m-23 21q15-4 26 0"/></g><ellipse cx="180" cy="95" rx="135" ry="39" fill="url(#bowlRim)" stroke="#6c7948" stroke-width="3"/><ellipse cx="180" cy="95" rx="112" ry="28" fill="#56653b"/><ellipse cx="180" cy="94" rx="94" ry="21" fill="#71804a"/><path d="M93 93q43-20 84-6t88 0" stroke="#d8d9a1" stroke-width="1.7" fill="none" opacity=".7"/></svg>
+          <div class="logo-stamp screen" id="logoStamp" aria-label="ตำแหน่งโลโก้">
+            <img id="logoImage" alt="โลโก้ที่อัปโหลด">
+            <div class="logo-placeholder" id="logoPlaceholder"><span><span class="leaf-mark">♧</span>YOUR<br>LOGO</span></div>
+          </div>
+        </div>
+        <div class="preview-caption"><span>ชิ้นงาน: <strong id="previewProductName">ถ้วยใบตองตึง</strong></span><span id="previewModeName">รูปแบบ: สกรีน</span></div>
+        <div class="preview-legend"><span><i class="legend-dot"></i> สกรีน: เนื้อโลโก้แนบผิว</span><span><i class="legend-dot sticker-dot"></i> สติกเกอร์: มีพื้นหลัง</span></div>
+        <p class="preview-disclaimer">ภาพนี้เป็นตัวอย่างจำลองเพื่อช่วยวางตำแหน่งเท่านั้น สีและความคมชัดของงานผลิตจริงขึ้นกับวัสดุ หมึก และไฟล์ต้นฉบับ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products-section" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Natural material</div><h2>ผลิตภัณฑ์ต้นแบบ</h2><p>ตัวอย่างชิ้นงานที่ใช้ประกอบการทดลองวางตราและสื่อสารแนวคิดวัสดุธรรมชาติ</p></div>
+    </div>
+    <div class="product-cards">
+      <article class="product-card">
+        <div class="product-card-art"><svg viewBox="0 0 280 200" fill="none" aria-label="ถ้วยใบตองตึงตัวอย่าง"><defs><linearGradient id="cardCup" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d4d09b"/><stop offset="1" stop-color="#7a884f"/></linearGradient></defs><ellipse cx="140" cy="165" rx="78" ry="13" fill="#68754d" opacity=".15"/><path d="M70 63Q140 88 210 63L194 153Q140 176 86 153Z" fill="url(#cardCup)" stroke="#68794b" stroke-width="2"/><path d="M82 71l14 78M106 78l8 83M130 82l4 83M154 82l-3 83M178 77l-8 83M198 69l-13 80" stroke="#e4dfad" stroke-width="1.8"/><ellipse cx="140" cy="63" rx="70" ry="23" fill="#d9d4a1" stroke="#68794b" stroke-width="2.5"/><ellipse cx="140" cy="63" rx="55" ry="15" fill="#55643b"/></svg></div>
+        <div class="product-card-body"><h3>ถ้วยใบตองตึง</h3><p>ทรงถ้วยโทนธรรมชาติ เหมาะสำหรับทดลองตำแหน่งโลโก้ด้านหน้าให้มองเห็นชัด</p><div class="tag-row"><span class="tag">งานสกรีน</span><span class="tag">สติกเกอร์</span></div></div>
+      </article>
+      <article class="product-card">
+        <div class="product-card-art"><svg viewBox="0 0 280 200" fill="none" aria-label="จานใบตองตึงตัวอย่าง"><defs><linearGradient id="cardPlate" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4dfb0"/><stop offset="1" stop-color="#a8b176"/></linearGradient></defs><ellipse cx="140" cy="119" rx="113" ry="56" fill="#69764d" opacity=".15"/><ellipse cx="140" cy="108" rx="112" ry="56" fill="#8d9a5f" stroke="#6c7948" stroke-width="2.5"/><ellipse cx="140" cy="101" rx="100" ry="49" fill="url(#cardPlate)" stroke="#8b945d" stroke-width="2"/><ellipse cx="140" cy="98" rx="79" ry="36" fill="#e7e2b8"/><path d="M76 93q64 26 128 0M85 109q55 20 110 0M101 78q39 18 78 0" stroke="#aeb27a" stroke-width="1.8"/></svg></div>
+        <div class="product-card-body"><h3>จานใบตองตึง</h3><p>พื้นที่ตรงกลางเหมาะสำหรับตราสัญลักษณ์แบบเรียบหรือโลโก้ทรงกลม</p><div class="tag-row"><span class="tag">พื้นที่กลางจาน</span><span class="tag">ต้นแบบ</span></div></div>
+      </article>
+      <article class="product-card">
+        <div class="product-card-art"><svg viewBox="0 0 280 200" fill="none" aria-label="ชามใบตองตึงตัวอย่าง"><defs><linearGradient id="cardBowl" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d2ce96"/><stop offset="1" stop-color="#78864d"/></linearGradient></defs><ellipse cx="140" cy="164" rx="86" ry="13" fill="#68754d" opacity=".15"/><path d="M48 73Q140 108 232 73L210 150Q140 178 70 150Z" fill="url(#cardBowl)" stroke="#68794b" stroke-width="2"/><path d="M62 82l15 63M90 90l8 69M118 97l4 69M147 98l-2 68M176 91l-8 68M204 82l-14 64" stroke="#e4dfad" stroke-width="1.8"/><ellipse cx="140" cy="73" rx="92" ry="29" fill="#d9d4a1" stroke="#68794b" stroke-width="2.5"/><ellipse cx="140" cy="73" rx="73" ry="20" fill="#56653b"/></svg></div>
+        <div class="product-card-body"><h3>ชามใบตองตึง</h3><p>ทรงลึกขึ้น เหมาะกับการทดลองตราขนาดเล็กและเปรียบเทียบความเด่นบนพื้นผิว</p><div class="tag-row"><span class="tag">ทรงลึก</span><span class="tag">โลโก้ด้านหน้า</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="booking-section" id="booking">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Oven booking</div><h2>จองรอบโรงอบ</h2><p>เลือกวัน เวลา และโรงอบที่ต้องการ ระบบทดลองจะช่วยตรวจสอบเวลาซ้อนกันก่อนบันทึกการจอง</p></div>
+    </div>
+    <div class="booking-grid">
+      <aside class="booking-aside">
+        <div class="kicker">Plan your batch</div>
+        <h3>จัดรอบการอบ<br>ให้เป็นระบบ</h3>
+        <p>บันทึกรอบใช้งานไว้ในรายการ เพื่อดูวันและช่วงเวลาที่เลือกได้ง่ายขึ้น</p>
+        <div class="booking-features">
+          <div class="booking-feature"><span>✓</span><span>เลือกโรงอบและช่วงเวลาที่ต้องการ</span></div>
+          <div class="booking-feature"><span>◷</span><span>ตรวจสอบรายการที่เวลาทับซ้อนกัน</span></div>
+          <div class="booking-feature"><span>▤</span><span>ดูหรือลบรายการจองจากหน้านี้ได้</span></div>
+        </div>
+        <div class="booking-notice">หมายเหตุ: เวอร์ชันสาธิตนี้บันทึกข้อมูลไว้ในเบราว์เซอร์เครื่องที่ใช้งานเท่านั้น ยังไม่ได้ส่งการจองไปยังเจ้าหน้าที่หรือฐานข้อมูลส่วนกลาง</div>
+      </aside>
+      <div class="booking-form-panel">
+        <h3>กรอกรายละเอียดการจอง</h3>
+        <p class="panel-sub">กรอกข้อมูลที่จำเป็นเพื่อเพิ่มรายการทดลอง</p>
+        <form id="bookingForm">
+          <div class="form-grid">
+            <div class="field"><label for="bookingName">ชื่อผู้จอง *</label><input id="bookingName" name="name" type="text" placeholder="ชื่อ-นามสกุล" autocomplete="name" required maxlength="80"></div>
+            <div class="field"><label for="bookingPhone">เบอร์ติดต่อ *</label><input id="bookingPhone" name="phone" type="tel" placeholder="08x-xxx-xxxx" autocomplete="tel" required maxlength="30"></div>
+            <div class="field"><label for="bookingDate">วันที่จอง *</label><input id="bookingDate" name="date" type="date" required></div>
+            <div class="field"><label for="bookingOven">เลือกโรงอบ *</label><select id="bookingOven" name="oven" required><option value="โรงอบ 1">โรงอบ 1</option><option value="โรงอบ 2">โรงอบ 2</option><option value="โรงอบ 3">โรงอบ 3</option></select></div>
+            <div class="field"><label for="bookingStart">เวลาเริ่ม *</label><select id="bookingStart" name="start" required><option value="08:00">08:00 น.</option><option value="10:00">10:00 น.</option><option value="12:00">12:00 น.</option><option value="14:00">14:00 น.</option><option value="16:00">16:00 น.</option></select></div>
+            <div class="field"><label for="bookingDuration">ระยะเวลา *</label><select id="bookingDuration" name="duration" required><option value="1">1 ชั่วโมง</option><option value="2">2 ชั่วโมง</option><option value="3">3 ชั่วโมง</option><option value="4">4 ชั่วโมง</option></select></div>
+            <div class="field full"><label for="bookingPurpose">รายละเอียดเพิ่มเติม (ไม่บังคับ)</label><textarea id="bookingPurpose" name="purpose" placeholder="เช่น ประเภทวัสดุ จำนวนชิ้น หรือหมายเหตุ"></textarea></div>
+          </div>
+          <p class="form-help">ระบบจะไม่อนุญาตให้จองช่วงเวลาที่ทับซ้อนกับรายการเดิมของโรงอบเดียวกัน</p>
+          <button class="btn form-submit" type="submit">บันทึกรายการจอง <span aria-hidden="true">→</span></button>
+          <div class="form-message" id="bookingMessage" role="status" aria-live="polite"></div>
+        </form>
+        <div class="reservations">
+          <div class="reservations-head"><h3>รายการจองในเครื่องนี้</h3><span class="reservation-count" id="reservationCount">0 รายการ</span></div>
+          <div class="reservation-list" id="reservationList"><div class="empty-state">ยังไม่มีรายการจอง<br>เมื่อกรอกแบบฟอร์มแล้ว รายการจะแสดงตรงนี้</div></div>
+          <p class="local-note">ข้อมูลรายการจองเก็บไว้ในเบราว์เซอร์นี้ด้วย Local Storage หากเปลี่ยนอุปกรณ์หรือเคลียร์ข้อมูลเว็บไซต์ รายการอาจไม่แสดงในเครื่องใหม่</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">How it works</div><h2>เริ่มใช้งานใน 4 ขั้นตอน</h2><p>ออกแบบตัวอย่างก่อน แล้วค่อยจัดการรอบการผลิตให้เป็นระเบียบ</p></div>
+    </div>
+    <div class="steps">
+      <article class="step"><div class="step-num">01</div><h3>เลือกวัสดุ</h3><p>เลือกถ้วย จาน หรือชามใบตองตึงเพื่อดูพื้นที่ติดโลโก้</p></article>
+      <article class="step"><div class="step-num">02</div><h3>อัปโหลดโลโก้</h3><p>ใช้ไฟล์โลโก้ของคุณ แล้วปรับขนาดให้ดูสมดุลกับชิ้นงาน</p></article>
+      <article class="step"><div class="step-num">03</div><h3>เทียบรูปแบบ</h3><p>สลับระหว่างสกรีนและสติกเกอร์ พร้อมดาวน์โหลดภาพตัวอย่าง</p></article>
+      <article class="step"><div class="step-num">04</div><h3>จองรอบโรงอบ</h3><p>ระบุวัน เวลา และโรงอบ เพื่อทดลองจัดตารางการใช้งาน</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="wrap faq-grid">
+    <div><div class="kicker">Good to know</div><h2>คำถามที่พบบ่อย</h2><p class="section-intro">ข้อควรรู้ก่อนใช้ตัวอย่างออกแบบและระบบจองในเวอร์ชันทดลอง</p></div>
+    <div class="faq-list">
+      <details><summary>ต้องใช้ไฟล์โลโก้แบบไหน?</summary><p>แนะนำ PNG พื้นหลังโปร่งใสเพื่อให้วางบนวัสดุได้ดูสะอาดขึ้น รองรับ JPG, WEBP และ SVG ด้วย ควรใช้ไฟล์ต้นฉบับที่คมชัด</p></details>
+      <details><summary>ภาพตัวอย่างตรงกับสินค้าจริงทุกอย่างไหม?</summary><p>ไม่ใช่ ภาพนี้เป็นภาพจำลองเพื่อช่วยวางตำแหน่งและเปรียบเทียบแนวทาง งานจริงอาจต่างกันตามพื้นผิวใบตองตึง หมึก เทคนิคสกรีน และชนิดสติกเกอร์</p></details>
+      <details><summary>รายการจองโรงอบส่งถึงผู้ดูแลแล้วหรือยัง?</summary><p>ยังเป็นระบบสาธิต ข้อมูลอยู่ในเบราว์เซอร์ของอุปกรณ์ที่กรอกเท่านั้น หากต้องการจองใช้งานจริงที่ทุกคนเห็นร่วมกัน ต้องเชื่อมฐานข้อมูลและระบบยืนยันการจองเพิ่มเติม</p></details>
+      <details><summary>จะนำเว็บไปให้เพื่อนทดลองได้อย่างไร?</summary><p>เปิดลิงก์เว็บไซต์ผ่าน GitHub Pages ได้ เมื่อการเผยแพร่เสร็จแล้ว เพื่อนสามารถทดลองอัปโหลดโลโก้ในอุปกรณ์ของตัวเองได้ แต่รายการจองจะไม่แชร์ข้ามเครื่องในเวอร์ชันนี้</p></details>
+    </div>
+  </div>
+</section>
+<div class="cta-band"><div class="wrap cta-inner"><div><h2>พร้อมลองไอเดียของคุณแล้วหรือยัง?</h2><p>เริ่มจากโลโก้หนึ่งไฟล์ แล้วดูว่าชิ้นงานแบบไหนเหมาะกับแบรนด์ที่สุด</p></div><a class="btn" href="#studio">เริ่มทดลองเลย <span aria-hidden="true">↗</span></a></div></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div class="footer-brand">Lanna EcoSync<span>ธรรมชาติ • งานออกแบบ • การจัดการการผลิต</span></div>
+    <div class="footer-links"><a href="#studio">ทดลองโลโก้</a><a href="#products">ผลิตภัณฑ์</a><a href="#booking">จองโรงอบ</a><a href="#faq">คำถามที่พบบ่อย</a></div>
+    <div class="footer-small"><span>© <span id="yearNow"></span> Lanna EcoSync — Prototype</span><span>เวอร์ชันทดลองสำหรับแสดงแนวคิดและทดสอบการใช้งาน</span></div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  'use strict';
+  var productNames={cup:'ถ้วยใบตองตึง',plate:'จานใบตองตึง',bowl:'ชามใบตองตึง'};
+  var selectedProduct='cup';
+  var selectedMode='screen';
+  var logoDataUrl='';
+  var toastTimer=null;
+  var navLinks=document.getElementById('navLinks');
+  var mobileMenu=document.getElementById('mobileMenu');
+  var logoFile=document.getElementById('logoFile');
+  var logoImage=document.getElementById('logoImage');
+  var logoPlaceholder=document.getElementById('logoPlaceholder');
+  var logoStamp=document.getElementById('logoStamp');
+  var logoSize=document.getElementById('logoSize');
+  var logoSizeValue=document.getElementById('logoSizeValue');
+  var previewProductName=document.getElementById('previewProductName');
+  var previewModeName=document.getElementById('previewModeName');
+  var bookingForm=document.getElementById('bookingForm');
+  var bookingMessage=document.getElementById('bookingMessage');
+  var reservationList=document.getElementById('reservationList');
+  var reservationCount=document.getElementById('reservationCount');
+  var storageKey='lanna-ecosync-bookings-v1';
+  document.getElementById('yearNow').textContent=new Date().getFullYear();
+
+  function showToast(message){
+    var toast=document.getElementById('toast');
+    toast.textContent=message;
+    toast.classList.add('show');
+    if(toastTimer){clearTimeout(toastTimer);}
+    toastTimer=setTimeout(function(){toast.classList.remove('show');},2800);
+  }
+  function localDateString(date){
+    var y=date.getFullYear();
+    var m=String(date.getMonth()+1).padStart(2,'0');
+    var d=String(date.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+d;
+  }
+  var dateInput=document.getElementById('bookingDate');
+  var today=new Date();
+  dateInput.min=localDateString(today);
+  var defaultDate=new Date(today.getFullYear(),today.getMonth(),today.getDate()+1);
+  dateInput.value=localDateString(defaultDate);
+
+  mobileMenu.addEventListener('click',function(){
+    var open=navLinks.classList.toggle('open');
+    mobileMenu.setAttribute('aria-expanded',open?'true':'false');
+  });
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click',function(){navLinks.classList.remove('open');mobileMenu.setAttribute('aria-expanded','false');});
+  });
+
+  document.querySelectorAll('[data-product]').forEach(function(button){
+    button.addEventListener('click',function(){
+      selectedProduct=button.getAttribute('data-product');
+      document.querySelectorAll('[data-product]').forEach(function(other){
+        var active=other===button;
+        other.classList.toggle('active',active);
+        other.setAttribute('aria-pressed',active?'true':'false');
+      });
+      document.querySelectorAll('[data-scene]').forEach(function(scene){
+        scene.classList.toggle('active',scene.getAttribute('data-scene')===selectedProduct);
+      });
+      previewProductName.textContent=productNames[selectedProduct];
+      showToast('เปลี่ยนตัวอย่างเป็น'+productNames[selectedProduct]);
+    });
+  });
+  document.querySelectorAll('[data-mode]').forEach(function(button){
+    button.addEventListener('click',function(){
+      selectedMode=button.getAttribute('data-mode');
+      document.querySelectorAll('[data-mode]').forEach(function(other){
+        var active=other===button;
+        other.classList.toggle('active',active);
+        other.setAttribute('aria-pressed',active?'true':'false');
+      });
+      updateLogoAppearance();
+    });
+  });
+  function updateLogoAppearance(){
+    logoStamp.classList.toggle('sticker',selectedMode==='sticker');
+    logoStamp.classList.toggle('screen',selectedMode==='screen');
+    previewModeName.textContent='รูปแบบ: '+(selectedMode==='screen'?'สกรีน':'สติกเกอร์');
+  }
+  function updateLogoSize(){
+    var size=Number(logoSize.value);
+    logoStamp.style.setProperty('--logo-size',size+'%');
+    logoSizeValue.textContent=size+'%';
+  }
+  logoSize.addEventListener('input',updateLogoSize);
+  updateLogoSize();
+  updateLogoAppearance();
+
+  logoFile.addEventListener('change',function(){
+    var file=logoFile.files && logoFile.files[0];
+    if(!file){return;}
+    if(!file.type || file.type.indexOf('image/')!==0){
+      showToast('กรุณาเลือกไฟล์รูปภาพ');
+      logoFile.value='';
+      return;
+    }
+    if(file.size>8*1024*1024){
+      showToast('ไฟล์ใหญ่เกินไป กรุณาเลือกไฟล์ไม่เกิน 8 MB');
+      logoFile.value='';
+      return;
+    }
+    var reader=new FileReader();
+    reader.onload=function(event){
+      logoDataUrl=event.target.result;
+      logoImage.onload=function(){
+        logoImage.style.display='block';
+        logoPlaceholder.style.display='none';
+      };
+      logoImage.onerror=function(){
+        logoDataUrl='';
+        logoImage.style.display='none';
+        logoPlaceholder.style.display='grid';
+        showToast('เปิดไฟล์รูปนี้ไม่ได้ ลองบันทึกเป็น PNG หรือ JPG');
+      };
+      logoImage.src=logoDataUrl;
+      document.getElementById('uploadTitle').textContent=file.name;
+      document.getElementById('uploadStatus').textContent='พร้อมแสดงบนตัวอย่าง • '+(file.size/1024/1024).toFixed(2)+' MB';
+      showToast('เพิ่มโลโก้แล้ว ปรับขนาดได้ตามต้องการ');
+    };
+    reader.onerror=function(){showToast('อ่านไฟล์ไม่สำเร็จ กรุณาลองอีกครั้ง');};
+    reader.readAsDataURL(file);
+  });
+  document.getElementById('clearLogo').addEventListener('click',function(){
+    logoDataUrl='';
+    logoFile.value='';
+    logoImage.removeAttribute('src');
+    logoImage.style.display='none';
+    logoPlaceholder.style.display='grid';
+    document.getElementById('uploadTitle').textContent='อัปโหลดไฟล์โลโก้';
+    document.getElementById('uploadStatus').textContent='PNG, JPG, WEBP หรือ SVG • ไม่เกิน 8 MB';
+    showToast('ล้างโลโก้แล้ว');
+  });
+
+  document.getElementById('downloadMockup').addEventListener('click',function(){
+    var svg=document.querySelector('[data-scene="'+selectedProduct+'"]');
+    if(!svg){showToast('ไม่พบภาพตัวอย่าง');return;}
+    var copy=svg.cloneNode(true);
+    copy.setAttribute('xmlns','http://www.w3.org/2000/svg');
+    copy.setAttribute('width','720');
+    copy.setAttribute('height','540');
+    copy.style.display='block';
+    var markup=new XMLSerializer().serializeToString(copy);
+    var blob=new Blob([markup],{type:'image/svg+xml;charset=utf-8'});
+    var objectUrl=URL.createObjectURL(blob);
+    var baseImage=new Image();
+    baseImage.onload=function(){
+      var canvas=document.createElement('canvas');
+      canvas.width=720;canvas.height=540;
+      var ctx=canvas.getContext('2d');
+      var bg=ctx.createRadialGradient(360,235,30,360,270,470);
+      bg.addColorStop(0,'#fffdf6');bg.addColorStop(1,'#e8e5d3');
+      ctx.fillStyle=bg;ctx.fillRect(0,0,720,540);
+      ctx.drawImage(baseImage,0,0,720,540);
+      URL.revokeObjectURL(objectUrl);
+      var size=Number(logoSize.value)/100*720;
+      var isSticker=selectedMode==='sticker';
+      var w=size;var h=isSticker?size:size/1.4;
+      var cx=360;var cy=302;
+      if(isSticker){ctx.save();ctx.shadowColor='rgba(44,52,35,.18)';ctx.shadowBlur=12;ctx.fillStyle='rgba(255,255,255,.97)';ctx.strokeStyle='#e5e4d8';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(cx,cy,w*.49,h*.49,0,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.restore();}
+      var inset=isSticker?.14:.02;
+      var bx=cx-w/2+w*inset;var by=cy-h/2+h*inset;var bw=w*(1-inset*2);var bh=h*(1-inset*2);
+      function drawPlaceholder(){
+        ctx.save();if(!isSticker){ctx.globalAlpha=.88;ctx.globalCompositeOperation='multiply';}
+        ctx.fillStyle='#25472f';ctx.textAlign='center';ctx.font='bold '+Math.max(22,bw*.19)+'px sans-serif';ctx.fillText('♧',cx,cy-4);
+        ctx.font='bold '+Math.max(13,bw*.105)+'px sans-serif';ctx.fillText('YOUR LOGO',cx,cy+Math.max(23,bw*.17));
+        ctx.restore();
+      }
+      function finish(){
+        var link=document.createElement('a');
+        link.download='lanna-ecosync-'+selectedProduct+'-'+selectedMode+'.png';
+        link.href=canvas.toDataURL('image/png');
+        document.body.appendChild(link);link.click();link.remove();
+        showToast('ดาวน์โหลดภาพตัวอย่างแล้ว');
+      }
+      if(logoDataUrl){
+        var logo=new Image();
+        logo.onload=function(){
+          var ratio=Math.min(bw/logo.width,bh/logo.height);
+          var dw=logo.width*ratio;var dh=logo.height*ratio;
+          ctx.save();if(!isSticker){ctx.globalAlpha=.88;ctx.globalCompositeOperation='multiply';}
+          ctx.drawImage(logo,cx-dw/2,cy-dh/2,dw,dh);ctx.restore();finish();
+        };
+        logo.onerror=function(){drawPlaceholder();finish();};
+        logo.src=logoDataUrl;
+      }else{drawPlaceholder();finish();}
+    };
+    baseImage.onerror=function(){URL.revokeObjectURL(objectUrl);showToast('สร้างภาพไม่สำเร็จ ลองอีกครั้ง');};
+    baseImage.src=objectUrl;
+  });
+
+  function readBookings(){
+    try{
+      var value=localStorage.getItem(storageKey);
+      var list=value?JSON.parse(value):[];
+      return Array.isArray(list)?list:[];
+    }catch(error){return [];}
+  }
+  function writeBookings(list){
+    try{localStorage.setItem(storageKey,JSON.stringify(list));return true;}
+    catch(error){return false;}
+  }
+  function minutes(time){
+    var parts=time.split(':');
+    return Number(parts[0])*60+Number(parts[1]);
+  }
+  function overlaps(aStart,aEnd,bStart,bEnd){return aStart<bEnd&&bStart<aEnd;}
+  function formatThaiDate(dateString){
+    var date=new Date(dateString+'T00:00:00');
+    return new Intl.DateTimeFormat('th-TH',{day:'numeric',month:'short',year:'2-digit'}).format(date);
+  }
+  function renderBookings(){
+    var bookings=readBookings().sort(function(a,b){
+      return (a.date+' '+a.start).localeCompare(b.date+' '+b.start);
+    });
+    reservationCount.textContent=bookings.length+' รายการ';
+    if(!bookings.length){
+      reservationList.innerHTML='<div class="empty-state">ยังไม่มีรายการจอง<br>เมื่อกรอกแบบฟอร์มแล้ว รายการจะแสดงตรงนี้</div>';
+      return;
+    }
+    reservationList.innerHTML='';
+    bookings.forEach(function(item){
+      var card=document.createElement('div');
+      card.className='reservation-item';
+      var dateBox=document.createElement('div');dateBox.className='res-date';
+      var dateObj=new Date(item.date+'T00:00:00');
+      var day=document.createElement('strong');day.textContent=String(dateObj.getDate());
+      var month=document.createElement('span');month.textContent=new Intl.DateTimeFormat('th-TH',{month:'short'}).format(dateObj);
+      dateBox.appendChild(day);dateBox.appendChild(month);
+      var info=document.createElement('div');info.className='res-info';
+      var title=document.createElement('strong');title.textContent=item.oven+' · '+item.start+'–'+item.end+' น.';
+      var meta=document.createElement('p');meta.textContent=item.name+' • '+formatThaiDate(item.date)+' • '+item.duration+' ชม.';
+      info.appendChild(title);info.appendChild(meta);
+      if(item.purpose){var note=document.createElement('p');note.textContent=item.purpose;info.appendChild(note);}
+      var actions=document.createElement('div');actions.className='res-actions';
+      var remove=document.createElement('button');remove.type='button';remove.className='delete-res';remove.textContent='ลบ';
+      remove.setAttribute('aria-label','ลบรายการจองของ '+item.name);
+      remove.addEventListener('click',function(){
+        var updated=readBookings().filter(function(b){return b.id!==item.id;});
+        writeBookings(updated);renderBookings();showToast('ลบรายการจองแล้ว');
+      });
+      actions.appendChild(remove);
+      card.appendChild(dateBox);card.appendChild(info);card.appendChild(actions);
+      reservationList.appendChild(card);
+    });
+  }
+  bookingForm.addEventListener('submit',function(event){
+    event.preventDefault();
+    bookingMessage.className='form-message';
+    bookingMessage.textContent='';
+    var name=document.getElementById('bookingName').value.trim();
+    var phone=document.getElementById('bookingPhone').value.trim();
+    var date=document.getElementById('bookingDate').value;
+    var oven=document.getElementById('bookingOven').value;
+    var start=document.getElementById('bookingStart').value;
+    var duration=Number(document.getElementById('bookingDuration').value);
+    var purpose=document.getElementById('bookingPurpose').value.trim();
+    if(!name||!phone||!date){bookingMessage.className='form-message error';bookingMessage.textContent='กรุณากรอกชื่อ เบอร์ติดต่อ และวันที่ให้ครบ';return;}
+    if(date<localDateString(new Date())){bookingMessage.className='form-message error';bookingMessage.textContent='วันที่จองต้องไม่เป็นวันที่ผ่านมาแล้ว';return;}
+    var startMin=minutes(start);var endMin=startMin+duration*60;
+    if(endMin>24*60){bookingMessage.className='form-message error';bookingMessage.textContent='ช่วงเวลานี้เกินเวลาสิ้นสุดของวัน กรุณาเลือกเวลาเริ่มใหม่';return;}
+    var existing=readBookings();
+    var conflict=existing.some(function(item){
+      if(item.date!==date||item.oven!==oven){return false;}
+      return overlaps(startMin,endMin,minutes(item.start),minutes(item.end));
+    });
+    if(conflict){bookingMessage.className='form-message error';bookingMessage.textContent='ช่วงเวลานี้มีรายการจองของ '+oven+' อยู่แล้ว กรุณาเลือกเวลาอื่นหรือเปลี่ยนโรงอบ';return;}
+    var endHour=String(Math.floor(endMin/60)).padStart(2,'0');
+    var endMinute=String(endMin%60).padStart(2,'0');
+    var record={id:String(Date.now())+'-'+Math.random().toString(36).slice(2,8),name:name,phone:phone,date:date,oven:oven,start:start,end:endHour+':'+endMinute,duration:duration,purpose:purpose};
+    existing.push(record);
+    if(!writeBookings(existing)){
+      bookingMessage.className='form-message error';bookingMessage.textContent='บันทึกไม่ได้ อาจเป็นเพราะพื้นที่จัดเก็บของเบราว์เซอร์เต็ม';return;
+    }
+    bookingMessage.className='form-message success';
+    bookingMessage.textContent='บันทึกรายการทดลองแล้ว — '+oven+' วันที่ '+formatThaiDate(date)+' เวลา '+start+'–'+record.end+' น.';
+    renderBookings();
+    document.getElementById('bookingPurpose').value='';
+    showToast('เพิ่มรายการจองแล้ว');
+  });
+  renderBookings();
+})();
+</script>
+</body>
+</html>
